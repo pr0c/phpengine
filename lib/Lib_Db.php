@@ -2,7 +2,7 @@
     class Lib_Db {
         function connect() {
             global $config;
-            $this->connection = new mysqli($config['db']['host'], $config['db']['user'], $config['db']['password'], $config['db']['db_name']);
+            $this->connection = new mysqli(Core_Config::get(['db', 'host']), Core_Config::get(['db', 'user']), Core_Config::get(['db', 'password']), Core_Config::get(['db', 'db_name']));
             if($this->connection->connect_errno) {
                 die('Could not connected to MySQL database: ('.$this->connection->connect_errno.') '.$this->connection->connect_error);
             }
@@ -16,7 +16,7 @@
             //$this->connection->query
         }
 
-        function insert() {
-            $this->connection->query();
+        function insert($query_string) {
+            $this->connection->query($query_string);
         }
     }

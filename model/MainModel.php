@@ -4,6 +4,13 @@
             $this->connect();
         }
 
+        function insertData(array $info) {
+            $query = "";
+            for($i = 0; $i < count($info); $i++) {
+
+            }
+        }
+
         function __destruct() {
             $this->disconnect();
         }

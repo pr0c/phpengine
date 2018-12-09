@@ -1,0 +1,17 @@
+.reg_input {
+    margin: 5px;
+}
+
+.reg_field {
+    border-radius: 5px;
+}
+
+.btn1 {
+    border-radius: 10px;
+    border-color: rgba(0, 0, 255, 0.315);
+    box-shadow: 0 0 5px;
+}
+
+.btn1:active {
+    box-shadow: 0 0 0;
+}

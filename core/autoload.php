@@ -1,5 +1,4 @@
 <?php
-    require_once 'config/main.php';
     spl_autoload_register('autoload');
     
     function autoload($classname) {
