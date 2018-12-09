@@ -9,7 +9,8 @@
         if($prefix[0] == 'core') $dir = '';
         else if($prefix[0] == 'lib') $dir = 'lib/';
         else {
-            $dir = 'controller/';
+            if(strpos($classname, 'Model') != false) $dir = 'model/';
+            if(strpos($classname, 'Controller') != false) $dir = 'controller/';
             $classname[0] = strtoupper($classname[0]);
         }
         require_once $dir.$classname.'.php';

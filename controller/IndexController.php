@@ -5,6 +5,8 @@
                 'content' => 'HELLO',
                 'username' => 'Dear user'
             );
-            $this->showView("index", $vars);
+            $this->showView('index', $vars);
+            $user = $this->useModel('UserModel');
+            $user->getInfo();
         }
     }

@@ -10,14 +10,15 @@
         }
 
         function showView($name, $addvars = null) {
-            global $config;
-            if($addvars == null || !isset($addvars['TITLE'])) {
-                $addvars['TITLE'] = $config['site']['title'];
-            }
+            
             $this->render($this->getName(), $name, $addvars);
         }
 
         function getName() {
             return str_replace('Controller', '', get_class($this));
+        }
+
+        function useModel($modelname) {
+            return new $modelname;
         }
     }
