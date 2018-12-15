@@ -1,5 +1,7 @@
 <?php
-    class MainController extends Core_Template {
+    namespace Controller;
+
+    class MainController extends Template {
         function __construct($action, $params = null) {
             $controller_action = $action;
             if(method_exists($this, $controller_action)) {
@@ -18,7 +20,9 @@
             return str_replace('Controller', '', get_class($this));
         }
 
-        function useModel($modelname) {
-            return new $modelname;
+        function useModel($modelname = null) {
+            if($modelname == null) $modelname = $this->getName() . 'Model';
+            else if(class_exists($modelname . 'Model')) $modelname = $modelname . 'Model'; 
+            $this->model = new $modelname;
         }
     }

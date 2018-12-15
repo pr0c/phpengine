@@ -1,5 +1,7 @@
 <?php
-    class Core_Config extends Core_Application {
+    namespace Core;
+    
+    class Config {
         static $config = array(
             'site' => array(
                 'title' => 'My CMS',
@@ -23,8 +25,11 @@
             )
         );
 
-        public static function get(array $option) {
+        static function get(array $option) {
             return isset(self::$config[$option[0]][$option[1]]) ? self::$config[$option[0]][$option[1]] : null;
+        }
+        static function print(array $option) {
+            echo isset(self::$config[$option[0]][$option[1]]) ? self::$config[$option[0]][$option[1]] : null;
         }
     }
     

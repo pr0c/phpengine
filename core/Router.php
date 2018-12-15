@@ -1,5 +1,7 @@
 <?php
-    class Core_Router extends Core_Runnable {
+    namespace Core;
+
+    class Router extends Runnable {
         function __construct() {
             $this->getRoute();
         }   
@@ -7,7 +9,7 @@
         function getRoute() {
             $this->routs = explode('/', $_SERVER['REQUEST_URI']);
             if(count($this->routs) > 2) {
-                if($this->routs[2] == Core_Config::get(['router', 'modules']) || $this->routs[3] == null) {
+                if($this->routs[2] == $this->cfg->get(['router', 'modules']) || $this->routs[3] == null) {
                     $this->module = $this->routs[3];
                 }
                 if($this->routs[4] != null) {
@@ -15,8 +17,8 @@
                 }
             }
             else {            
-                $this->module = Core_Config::get(['router', 'main_module']);
-                $this->action = Core_Config::get(['router', 'main_action']);
+                $this->module = Config::get(['router', 'main_module']);
+                $this->action = Config::get(['router', 'main_action']);
             }
             $this->route();
         }

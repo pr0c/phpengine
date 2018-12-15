@@ -1,8 +1,7 @@
 <?php
-    class Core_Runnable extends Core_Application {
-        function __construct() {
-            
-        }
+    namespace Core;
+    
+    class Runnable extends Application {
 
         function action($act) {
             //print_r($act);

@@ -1,4 +1,6 @@
 <?php
+    namespace Controller;
+
     class IndexController extends MainController {
         function index() {
             $vars = array(
@@ -6,7 +8,7 @@
                 'username' => 'Dear user'
             );
             $this->showView('index', $vars);
-            $user = $this->useModel('UserModel');
+            $this->useModel('User');
             $user->getInfo();
         }
     }
